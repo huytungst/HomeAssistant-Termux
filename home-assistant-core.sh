@@ -35,6 +35,7 @@ else
  udocker_run -p "$PORT:8123" \
    -e TZ="$TZ" \
    -v "$STORAGE_PATH:/config" \
+   -e PYTHONPATH="/config/pyoverrides:$PYTHONPATH" \
   "$CONTAINER_NAME" \
   bash -c 'exec python3 -m homeassistant --config /config'
 fi
